@@ -30,7 +30,7 @@ for repetition in range(1,11):
  #tomando el tiempo (inicial)
  timestamp_01 = time.time()
  #sumo los "n" números
- n= repetition*500
+ n= repetition*100
  result=sum_of_n(n)
  #⏱️tomamdo el tiempo 1 (final)
  timestamp_02=time.time()
