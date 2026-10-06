@@ -6,24 +6,35 @@ calcula la suma del 1 al 100
 42 usando un ciclo while
 """
 #importar la biblioteca de tiempo 
-import time
-#Crear variables para el problema
-n = 100
-the_sum = 0
-# Tomando el tiempo 1
-timestamp_01=time.time()
+import time 
+#funcion que suma los primeros "n" numreso naturales
+def sum_of_n(n):
+    total_sum=0
+    #Sumando los "n" numeros 
+    #ciclo while
+    number=1 
+    while number <= n :
+      total_sum = total_sum + number
+      number = number + 1
+      #retornando el total de la suma
+    return total_sum
+    
+#variable para guardar el data set
+dataset=[] 
+for repetition in range(1,11):
+ 
+ #tomando el tiempo inicial
+ timestamp_01 = time.time()
+ 
+ n= repetition*100
+ result=sum_of_n(n)
+ #tiempo final
 
-#Iniciando la suma
-while(n > 0):
-  the_sum = the_sum + n #100 + 99 + 98 + .. + 1
-  n = n - 1
+ timestamp_02=time.time()
+ #calculando el  tiempo
+ elapsed_time = round ((timestamp_02-timestamp_01) * 1e6,2)
+ #Agregar la tripleta de los datos al dataset
+ dataset.append((n,elapsed_time,result))
 
-#tomamos el tiemppo2 
-timestamp_02 = time.time()
-
-# Imprimimos  la solucion 
-print(f"La suma es {the_sum}")
-
-#calculando el tiempo
-elapsed_time = round ((timestamp_02-timestamp_01) * 1e6,2)
-print(f"tiempo de eejcucuion: {elapsed_time} us")
+for tup in dataset:
+  print(tup)
