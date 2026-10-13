@@ -21,9 +21,15 @@ my_array = arr('i',[10,22,300,4,8,16,50,320,20,40,27])
 #Leng
 print(len(my_array))
 #Iteracion por índices
-for i in range (len(my_array)):
-    if my_array[i] % 2==0:
-     print(f"Elemento Num:{i+1}:{my_array[i]}")
+# for i in range (len(my_array)):
+#     if my_array[i] % 2==0: 
+#      print(f"Elemento Num:{i+1}:{my_array[i]}")
+# Busqueda de un elemento
+num_to_search =200
+# Modificando un valor usando backet notation
+my_array[7]=200
 
-
-#para numeros pares 
+try:
+    print(f"localizando {num_to_search }: {my_array.index(num_to_search)}")
+except:
+    print("⚠️ Numero no encontrado!!!")
