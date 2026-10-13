@@ -33,3 +33,10 @@ try:
     print(f"localizando {num_to_search }: {my_array.index(num_to_search)}")
 except:
     print("⚠️ Numero no encontrado!!!")
+    #try significa probar 
+#asignando valor en un indice que no existe
+try:
+ my_array[100]=3
+except:
+ print("⚠️ indice no existe!!!")
+
