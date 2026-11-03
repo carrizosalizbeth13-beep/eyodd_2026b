@@ -26,7 +26,7 @@ print(f"Cantidad de columnas de {len (matrix[0])}")
 
 center = columns // 2 #se hacen diviiones enteras  con doble /
 #Estableciendo el centro en 1 
-matrix[0][center]
+matrix[0][center] = 1
 print_matrix(matrix)
 #SE calcula el resto de la matrix siguiendo la logica del siperpinsky gasket
 for row in range(1,rows):
