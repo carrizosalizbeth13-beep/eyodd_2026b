@@ -1,49 +1,84 @@
-
 from array import array as arr
- # array importa la biblioteca y el segundo es el modulo yb el tercero como lo renombro
- # Parametros de mi  cuadricula
-rows= 8
-#row_fila 
-columns = 2 * rows - 1
-# Funcion para imprimir  matrix
+from enum import Enum
+
+# Borra pantalla con caracteres ANSI
+def clear_screen():
+    print("\033[2J\033[H", end="")
+
+# Encapsulado de colores ANSI
+class AnsiColor(Enum):
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    CYAN = "\033[96m"
+    RESET = "\033[0m"
+
+# Imprime la matriz numérica
 def print_matrix(input_matrix):
-  for row in matrix:
-    print(list(row))
+    for row in input_matrix:
+        print(list(row))
 
+# Genera el triángulo de Sierpinski
+def generate_triangle(rows=1):
 
-# crando el grid  en dos dimensiones 
-matrix=[]
-#construyendo el grid
-for _ in range (rows):
-    new_row=arr('i',[0] * columns)
-    matrix.append(new_row)
+    columns = 2 * rows - 1
 
-#Validando la construcion del Grid 
-print(f"Cantidad de filas :{len (matrix)}")
-print(f"Cantidad de columnas de {len (matrix[0])}")
+    matrix = []
 
-#calculando en centro de la primera fila 
+    for _ in range(rows):
+        new_row = arr('i', [0] * columns)
+        matrix.append(new_row)
 
-center = columns // 2 #se hacen diviiones enteras  con doble /
-#Estableciendo el centro en 1 
-matrix[0][center] = 1
-print_matrix(matrix)
-#SE calcula el resto de la matrix siguiendo la logica del siperpinsky gasket
-for row in range(1,rows):
- for col in range(0,columns):
-  left_upper_cell = 0
-  right_upper_cell = 0
-   #Si la columna donde estamos es mayor a 0
-  if col > 0:
-    left_upper_cell = matrix[row-1][col-1]
-  # si la columna esta un elemento antes del borde derecho
-  if col < columns -1:
-    right_upper_cell = matrix [row-1][col + 1]
-  
-  # Guardo el arreglo
-  if left_upper_cell != right_upper_cell:
-    matrix[row][col]=1
-  else:
-    matrix[row][col]= 0
-print()
-print_matrix(matrix)
+    center = columns // 2
+    matrix[0][center] = 1
+
+    for row in range(1, rows):
+        for col in range(columns):
+
+            left_upper_cell = 0
+            right_upper_cell = 0
+
+            if col > 0:
+                left_upper_cell = matrix[row - 1][col - 1]
+
+            if col < columns - 1:
+                right_upper_cell = matrix[row - 1][col + 1]
+
+            if left_upper_cell != right_upper_cell:
+                matrix[row][col] = 1
+            else:
+                matrix[row][col] = 0
+
+    return matrix
+
+# Dibuja la matriz
+def draw_matrix(input_matrix, symbol="*"):
+
+    for row in input_matrix:
+        for cell in row:
+
+            if cell == 1:
+                print(
+                    AnsiColor.CYAN.value +
+                    symbol +
+                    AnsiColor.RESET.value,
+                    end=""
+                )
+            else:
+                print(
+                    AnsiColor.RED.value + " ",
+                    end=""
+                )
+
+        print()
+
+# Método principal
+def main():
+
+    matrix = generate_triangle(15)
+
+    clear_screen()
+
+    draw_matrix(matrix, symbol="■")
+
+if __name__ == "__main__":
+    main()
