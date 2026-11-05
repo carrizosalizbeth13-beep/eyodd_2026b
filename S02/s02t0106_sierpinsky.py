@@ -1,10 +1,8 @@
 from array import array as arr
 from enum import Enum
 
-
 def clear_screen():
     print("\033[2J\033[H", end="")
-
 
 class AnsiColor(Enum):
     RED = "\033[91m"
