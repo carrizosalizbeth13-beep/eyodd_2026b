@@ -1,11 +1,11 @@
 from array import array as arr
 from enum import Enum
 
-# Borra pantalla con caracteres ANSI
+
 def clear_screen():
     print("\033[2J\033[H", end="")
 
-# Encapsulado de colores ANSI
+
 class AnsiColor(Enum):
     RED = "\033[91m"
     YELLOW = "\033[93m"
