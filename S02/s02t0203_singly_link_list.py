@@ -1,5 +1,5 @@
 # Importando clase Node 
-from s02t0201_linked_list import Node
+from S02.s02t0201_linked_listt import Node
 # Crerando la calse  de un lista enlazada
 class SinglyList:
     #contructor 
@@ -22,16 +22,16 @@ class SinglyList:
         current_node.next = new_node
 # 1 Creo funcion principal 
 def main():
-#Creando una instacia de una lista enlazada
-my_list = SinglyList()
-#Agregando elementos a la lista 
-my_list.append(30)
-my_list.append(59)
-my_list.append(80)
-my_list.append(100)
-# Recorrer la lista 
-for value in my_list.head.iter():
-    print ("{value}",end="" )
+ #Creando una instacia de una lista enlazada
+ my_list = SinglyList()
+ #Agregando elementos a la lista 
+ my_list.append(30)
+ my_list.append(59)
+ my_list.append(80)
+ my_list.append(100)
+ # Recorrer la lista 
+ for value in my_list.head.iter():
+     print (f"{value}", end=" " )
 # Evaluo el valor de __name__
-if __name__== "main":
+if __name__== "__main__":
     main()
