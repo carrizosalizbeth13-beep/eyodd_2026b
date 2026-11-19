@@ -1,5 +1,5 @@
 # Importando clase Node 
-from S02.s02t0201_linked_listt import Node
+from s02t0201_linked_list import Node
 # Crerando la calse  de un lista enlazada
 class SinglyList:
     #contructor 
@@ -32,6 +32,7 @@ def main():
  # Recorrer la lista 
  for value in my_list.head.iter():
      print (f"{value}", end=" " )
+     print()
 # Evaluo el valor de __name__
 if __name__== "__main__":
     main()
